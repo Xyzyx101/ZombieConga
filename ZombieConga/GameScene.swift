@@ -160,17 +160,29 @@ class GameScene: SKScene {
         moveZombieToward(touchLocation)
     }
     
+    #if os(iOS)
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        let touch = touches.first as! UITouch
-        let touchLocation = touch.locationInNode(backgroundLayer)
-        sceneTouched(touchLocation)
+    let touch = touches.first as! UITouch
+    let touchLocation = touch.locationInNode(backgroundLayer)
+    sceneTouched(touchLocation)
     }
     
     override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
-        let touch = touches.first as! UITouch
-        let touchLocation = touch.locationInNode(backgroundLayer)
+    let touch = touches.first as! UITouch
+    let touchLocation = touch.locationInNode(backgroundLayer)
+    sceneTouched(touchLocation)
+    }
+    #else
+    override func mouseDown(theEvent: NSEvent) {
+        let touchLocation = theEvent.locationInNode(backgroundLayer)
         sceneTouched(touchLocation)
     }
+    
+    override func mouseDragged(theEvent: NSEvent) {
+        let touchLocation = theEvent.locationInNode(backgroundLayer)
+        sceneTouched(touchLocation)
+    }
+    #endif
     
     func boundsCheckZombie() {
         let bottomLeft = backgroundLayer.convertPoint(CGPoint(x: 0, y: CGRectGetMinY(playableRect)), fromNode: self)

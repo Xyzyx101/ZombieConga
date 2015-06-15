@@ -9,9 +9,24 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>ZombieCongaMac.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>05E168791B2F45B7006881CE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>05E1688C1B2F45B8006881CE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>05ED65C71B20BC8F000BB9E6</key>
 		<dict>
 			<key>primary</key>

@@ -27,14 +27,24 @@ class MainMenuScene: SKScene {
         
     }
     
+    #if os(iOS)
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        sceneTapped()
+    }
+    #else
+    override func mouseDown(theEvent: NSEvent) {
+        sceneTapped()
+    }
+    #endif
+    
+    func sceneTapped() {
         if !inTransition {
             inTransition = true
             var gameScene = GameScene(size: size)
             gameScene.scaleMode = scaleMode
             let reveal = SKTransition.doorwayWithDuration(1.5)
             view?.presentScene(gameScene, transition: reveal)
-
+            
         }
     }
 }
